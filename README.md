@@ -21,28 +21,28 @@ Implements **HNSW**, **KD-Tree**, and **Brute Force** search algorithms side-by-
 
 ---
 
-## How It Works
+## 🏗️ Architecture Diagram
 
-```
-Your Text
-    │
-    ▼
-Ollama (nomic-embed-text)          ← converts text to a 768-dimensional vector
-    │
-    ▼
-HNSW Index (C++)                   ← indexes the vector in a multilayer graph
-    │
-    ▼
-Semantic Search                    ← finds nearest neighbors in vector space
-    │
-    ▼
-Ollama (llama3.2)                  ← reads retrieved chunks, generates an answer
-    │
-    ▼
-Answer
-```
+<p align="center">
+  <img src="screenshots/architecture.png" alt="Nexus-AI Architecture Diagram" width="800">
+</p>
 
-**HNSW (Hierarchical Navigable Small World)** is the same algorithm used by Pinecone, Weaviate, Chroma, and Milvus. It builds a multilayer graph where each layer is progressively sparser — searches start at the top layer and zoom in, achieving O(log N) complexity instead of O(N) for brute force.
+The architecture illustrates the complete flow of the system, including the Web UI, C++ backend, vector search engines (HNSW, KD-Tree, Brute Force), Ollama-based embedding generation, document indexing, and Retrieval-Augmented Generation (RAG) pipeline.
+
+---
+
+## ⚙️ How It Works
+
+1. User submits a query or document through the web interface.
+2. Ollama (`nomic-embed-text`) converts the input into a high-dimensional embedding.
+3. The embedding is indexed and searched using HNSW for efficient nearest-neighbor retrieval.
+4. Relevant document chunks are retrieved based on semantic similarity.
+5. Retrieved context is passed to `llama3.2`.
+6. The LLM generates a context-aware response and returns it to the user.
+
+### Why HNSW?
+
+HNSW (Hierarchical Navigable Small World) is a graph-based approximate nearest-neighbor algorithm used by modern vector databases such as Pinecone, Weaviate, Milvus, and Chroma. By organizing vectors in multiple graph layers, it achieves near `O(log N)` search complexity while maintaining high retrieval accuracy.
 
 ---
 
@@ -131,7 +131,7 @@ You should see both models listed.
 Open **PowerShell** and run:
 
 ```powershell
-git clone https://github.com/thepraveenrajput/VectorDB.git
+git clone https://github.com/thepraveenrajput/Nexus-AI.git
 cd VectorDB
 ```
 
@@ -220,6 +220,38 @@ What happens behind the scenes:
 ```
 
 The answer streams in with a typewriter effect. Click the **context chips** to see exactly which chunks the AI used.
+
+---
+
+## 📸 Screenshots
+
+### Dashboard
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="800">
+</p>
+
+*Interactive dashboard showing vector search visualization, HNSW graph structure, and system status.*
+
+---
+
+### 📄 Document Ingestion
+
+<p align="center">
+  <img src="screenshots/document-upload.png" width="800">
+</p>
+
+*Paste text documents directly into the application. The system automatically generates embeddings using `nomic-embed-text`, chunks long content, and indexes it using HNSW for semantic search and Retrieval-Augmented Generation (RAG).*
+
+---
+
+### RAG Pipeline
+
+<p align="center">
+  <img src="screenshots/rag-demo.png" width="800">
+</p>
+
+*Retrieval-Augmented Generation using Ollama embeddings and llama3.2.*
 
 ---
 
