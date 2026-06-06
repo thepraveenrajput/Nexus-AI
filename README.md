@@ -1,4 +1,4 @@
-# VectorDB — Build a Vector Database from Scratch in C++
+# NexusAI — A Vector Database and Retrieval-Augmented Generation (RAG) system built from scratch in C++.
 
 A fully working **Vector Database** built from scratch in C++ with a web UI.  
 Implements **HNSW**, **KD-Tree**, and **Brute Force** search algorithms side-by-side, plus a **RAG pipeline** powered by a local LLM via Ollama.
@@ -6,18 +6,20 @@ Implements **HNSW**, **KD-Tree**, and **Brute Force** search algorithms side-by-
 > Built as an educational project to show how production vector databases like Pinecone, Weaviate, and Chroma actually work under the hood.
 
 ---
+## 🚀 Project Demo
 
-## What This Project Does
+<p align="center">
+  <img src="screenshots/dashboard.png" width="900">
+</p>
 
-| Feature | Description |
-|---|---|
-| **3 Search Algorithms** | HNSW (production-grade), KD-Tree, Brute Force — run all three and compare speed |
-| **3 Distance Metrics** | Cosine similarity, Euclidean distance, Manhattan distance |
-| **16D Demo Vectors** | 20 pre-loaded semantic vectors across 4 categories (CS, Math, Food, Sports) |
-| **2D PCA Scatter Plot** | Live visualization of semantic space — watch clusters form |
-| **Real Document Embedding** | Paste any text → Ollama embeds it with `nomic-embed-text` (768D) |
-| **RAG Pipeline** | Ask questions about your documents → HNSW retrieves context → local LLM answers |
-| **Full REST API** | CRUD endpoints: insert, delete, search, benchmark, hnsw-info |
+*Interactive Vector Database featuring HNSW search, semantic retrieval, document embeddings, and Retrieval-Augmented Generation (RAG).*
+
+---
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue)
+![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-green)
+![HNSW](https://img.shields.io/badge/Search-HNSW-orange)
+![RAG](https://img.shields.io/badge/AI-RAG-purple)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
@@ -39,6 +41,37 @@ The architecture illustrates the complete flow of the system, including the Web 
 4. Relevant document chunks are retrieved based on semantic similarity.
 5. Retrieved context is passed to `llama3.2`.
 6. The LLM generates a context-aware response and returns it to the user.
+
+---
+
+## What This Project Does
+
+| Feature | Description |
+|---|---|
+| **3 Search Algorithms** | HNSW (production-grade), KD-Tree, Brute Force — run all three and compare speed |
+| **3 Distance Metrics** | Cosine similarity, Euclidean distance, Manhattan distance |
+| **16D Demo Vectors** | 20 pre-loaded semantic vectors across 4 categories (CS, Math, Food, Sports) |
+| **2D PCA Scatter Plot** | Live visualization of semantic space — watch clusters form |
+| **Real Document Embedding** | Paste any text → Ollama embeds it with `nomic-embed-text` (768D) |
+| **RAG Pipeline** | Ask questions about your documents → HNSW retrieves context → local LLM answers |
+| **Full REST API** | CRUD endpoints: insert, delete, search, benchmark, hnsw-info |
+
+---
+
+## 🛠️ Tech Stack
+
+- C++17
+- HNSW
+- KD-Tree
+- Brute Force Search
+- Ollama
+- nomic-embed-text
+- llama3.2
+- HTML/CSS/JavaScript
+- REST API
+- Retrieval-Augmented Generation (RAG)
+
+---
 
 ### Why HNSW?
 
@@ -132,7 +165,7 @@ Open **PowerShell** and run:
 
 ```powershell
 git clone https://github.com/thepraveenrajput/Nexus-AI.git
-cd VectorDB
+cd Nexus-AI
 ```
 
 ---
@@ -224,16 +257,6 @@ The answer streams in with a typewriter effect. Click the **context chips** to s
 ---
 
 ## 📸 Screenshots
-
-### Dashboard
-
-<p align="center">
-  <img src="screenshots/dashboard.png" width="800">
-</p>
-
-*Interactive dashboard showing vector search visualization, HNSW graph structure, and system status.*
-
----
 
 ### 📄 Document Ingestion
 
