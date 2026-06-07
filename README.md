@@ -1,4 +1,4 @@
-# NexusAI — A Vector Database and Retrieval-Augmented Generation (RAG) system built from scratch in C++.
+# NexusDB — A Vector Database and Retrieval-Augmented Generation (RAG) system built from scratch in C++.
 
 A fully working **Vector Database** built from scratch in C++ with a web UI.  
 Implements **HNSW**, **KD-Tree**, and **Brute Force** search algorithms side-by-side, plus a **RAG pipeline** powered by a local LLM via Ollama.
